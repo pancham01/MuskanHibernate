@@ -14,9 +14,7 @@ public class Main {
 		Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
 		SessionFactory sf = cfg.buildSessionFactory();
 		Session session = sf.openSession();
-		Transaction tx = session.beginTransaction();
-		session.save(vikas);
-		tx.commit();
+		
 	}
 
 }
