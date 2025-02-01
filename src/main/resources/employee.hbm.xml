@@ -3,9 +3,11 @@
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="com.hibernate.model.Employee">
-		<id name="id" />
-		<property name="name" />
+	<class name="com.hibernate.model.Employee" table="muskan">
+		<id name="id">
+			<generator class="identity" />		
+	</id>
+		<property name="name" column="emp_name"/>
 		<property name="gender" />
 		<property name="salary" />
 	</class>
