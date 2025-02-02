@@ -2,18 +2,21 @@ package com.hibernate.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity(name = "facebook_emp")
 public class Employee {
 
 	@Id
+	@GeneratedValue( strategy = GenerationType.IDENTITY)
 	int id;
 	@Column(name = "emp_name")
 	private String name;
 	String gender;
 	int salary;
-	
+
 	public Employee() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -63,7 +66,5 @@ public class Employee {
 	public String toString() {
 		return "Employee [id=" + id + ", name=" + name + ", gender=" + gender + ", salary=" + salary + "]";
 	}
-	
-	
-	
+
 }
