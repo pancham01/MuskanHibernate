@@ -1,9 +1,17 @@
 package com.hibernate.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity(name = "facebook_emp")
 public class Employee {
 
+	@Id
 	int id;
-	private String name, gender;
+	@Column(name = "emp_name")
+	private String name;
+	String gender;
 	int salary;
 	
 	public Employee() {
