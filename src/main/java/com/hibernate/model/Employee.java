@@ -5,29 +5,34 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
-@Entity(name = "facebook_emp")
+@Entity
 public class Employee {
 
 	@Id
 	@GeneratedValue( strategy = GenerationType.IDENTITY)
 	int id;
-	@Column(name = "emp_name")
+	@Column
 	private String name;
 	String gender;
 	int salary;
+	
+	@OneToOne
+	private Address address;
 
 	public Employee() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public Employee( String name, String gender, int salary) {
+	
+	public Employee(String name, String gender, int salary) {
 		super();
 		this.name = name;
 		this.gender = gender;
 		this.salary = salary;
 	}
+
 
 	public int getId() {
 		return id;
@@ -57,13 +62,25 @@ public class Employee {
 		return salary;
 	}
 
+	public Address getAddress() {
+		return address;
+	}
+
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+
 	public void setSalary(int salary) {
 		this.salary = salary;
 	}
+
 
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", name=" + name + ", gender=" + gender + ", salary=" + salary + "]";
 	}
 
+	
 }

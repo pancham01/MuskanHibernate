@@ -16,7 +16,7 @@ public class HibernateConfiguration {
 		Properties ps = new Properties();
 
 		ps.put(Environment.DIALECT, "org.hibernate.dialect.MySQLDialect");
-		ps.put(Environment.URL, "jdbc:mysql://localhost:3306/mydb");
+		ps.put(Environment.URL, "jdbc:mysql://localhost:3306/piyush");
 		ps.put(Environment.USER, "root");
 		ps.put(Environment.PASS, "root");
 		ps.put(Environment.HBM2DDL_AUTO, "update");
@@ -24,8 +24,9 @@ public class HibernateConfiguration {
 		ps.put(Environment.FORMAT_SQL, "true");
 
 		StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().applySettings(ps).build();
-		MetadataSources meta = new MetadataSources(ssr).addAnnotatedClass(com.hibernate.model.Employee.class);
-		
+		MetadataSources meta = new MetadataSources(ssr).addAnnotatedClass(com.hibernate.model.Employee.class)
+				.addAnnotatedClass(com.hibernate.model.Address.class);
+
 		return meta.getMetadataBuilder().build().buildSessionFactory();
 
 	}
